@@ -5,18 +5,18 @@ class Fraction:
     # initialize variables
     def __init__(self, num, den):
         self.num = num
-        self.dem = den
+        self.den = den
 
     def toDecimal(self):
         return self.num/self.den
     
     def gcd(m,n):
         while m%n != 0:
-        oldm = m
-        oldn = n
-        m = oldn
-        n = oldm%oldn
-    return n
+            oldm = m
+            oldn = n
+            m = oldn
+            n = oldm%oldn
+        return n
 
     def __add__(self, f2):
         newnum = self.num*otherfraction.den + self.den*otherfraction.num
