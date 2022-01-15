@@ -1,4 +1,6 @@
-#/usr/bin/python3
+from typing import List
+
+#/usr/bin/env python3
 
 # Alice has some cards with numbers written on them.
 # She arranges the cards in decreasing order, and lays them out face down
@@ -65,11 +67,49 @@ tests.append({
     'output': 0 
 })
 
-# assume the problem will return -1 in case cards does not return query
+# cards does not contain query 
+tests.append({
+    'input': {
+        'cards': [9, 7, 5, 2, -9],
+        'query': 4
+    },
+    'output': -1
+})
 
-def locate_card(self, cards: List[int], query: int) -> int:
+# cards is empty
+tests.append({
+    'input': {
+        'cards': [],
+        'query': 7
+    },
+    'output': -1
+})
+
+# numbers can repeat in cards
+tests.append({
+    'input': {
+        'cards': [8, 8, 6, 6, 6, 6, 6, 3, 2, 2, 2, 0, 0, 0],
+        'query': 3
+    },
+    'output': 7
+})
+
+# assume the problem will return -1 in case cards does not return query
+# function returns the first occurence of query
+
+# state the brute force solution
+
+def locate_card(cards, query) -> int:
     pass
 
-result = locate_card(**test['input'], test['output']) 
+for i in tests:
+    result = locate_card(i.get('input', {}).get('cards'), i.get('input', {}).get('query'))
+    print("input: " + str(i) + "output: " + str(result))
+    print('Test has passed! \n' if result == i.get('output') else "Test has not passed. \n")
+
+
+
+
+    
 
 
