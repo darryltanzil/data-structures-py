@@ -94,19 +94,50 @@ tests.append({
     'output': 7
 })
 
+# brute force algorithm
+def locate_card(cards, query) -> int:
+	res = -1
+	for count, value in enumerate(cards):
+		if value == query:
+			res = count
+	return res 
+	
 # assume the problem will return -1 in case cards does not return query
 # function returns the first occurence of query
 
-# state the brute force solution
+# binary search
+def locate_card(cards, query, start, end) -> int:
+if start > end:
+	return -1
+mid = (start + end) // 2
+if query == cards[mid]
+	return mid
+elif query > cards[mid]
+	return locate_card(cards, query, mid+1, end)
+else:
+	return locate_card(cards, query, start, mid-1)
 
-def locate_card(cards, query) -> int:
-    pass
+# iterative solution 
+​​class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+	
+        def bin_search(nums, target, start, end):
+            if start > end:
+                return -1
+            
+            mid = (start + end) // 2
+
+            if target == nums[mid]
+			
+		elif target > nums[mid]:
+			return bin_search(nums, target, mid+1, end)
+		else:
+			return bin_search(nums, target, start, mid-1)
 
 for i in tests:
-    result = locate_card(i.get('input', {}).get('cards'), i.get('input', {}).get('query'))
+    result = locate_card(i.get('input', {}).get('cards'), i.get('input', {}).get('query'), 0, len(i.get('input', {}).get('cards')))
     print("input: " + str(i) + "output: " + str(result))
     print('Test has passed! \n' if result == i.get('output') else "Test has not passed. \n")
-
 
 
 
