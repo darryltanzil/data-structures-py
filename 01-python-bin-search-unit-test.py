@@ -28,10 +28,6 @@ import unittest
 # The number query occurs at more than one position in cards.
 # (can you think of any more variations?)
 
-
-
-    
-
 # assume the problem will return -1 in case cards does not return query
 # function returns the first occurence of query
 
